@@ -1,0 +1,4 @@
+
+print("hello from python?")
+
+https://stackoverflow.com/questions/70680292/execute-python-script-through-java
