@@ -1,1 +1,0 @@
-As DBMS allows us to work with data in real-time, two engineers working on the same Database, sitting on the opposite sides of the globe will be able to instantly see any changes made on the other side, there is almost no delay.
