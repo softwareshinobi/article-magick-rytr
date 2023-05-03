@@ -1,20 +1,38 @@
 #!/usr/bin/env python
 
+###
+
 import json
 
 from utility utility-text-manipulation the_secret_sauce
 
 from flask import Flask, request, jsonify
 
+###
+
 app = Flask(__name__)
 
+###
+
 @app.route('/', methods=["GET"])
-def returnHeadddlthCheckMessageGET():
-	return "The Content rewriting api appears to be up now"
+def handleRootRequestGET():
+
+	statusMessage = "hello from / *GET*"
+
+	print(statusMessage)
+
+	return statusMessage
 
 @app.route('/', methods=["POST"])
-def returnHeadddlthCheckMessagePOST():
-	return "The Content rewriting api appears to be up now (POST)"
+def handleRootRequestPOST():
+
+	statusMessage = "hello from / *POST*"
+
+	print(statusMessage)
+
+	return statusMessage
+
+###
 
 @app.route('/health-check', methods=["GET"])
 def returnHealthCheckMessageGET():
@@ -24,6 +42,7 @@ def returnHealthCheckMessageGET():
 def returnHealthCheckMessagePOST():
 	return ":: CONTENT REWRITER API IS UP :: (POST)"
 
+###
 
 @app.route('/content/rewrite-content', methods=["GET"])
 def contentRewriterGET():
