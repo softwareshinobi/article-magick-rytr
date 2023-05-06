@@ -1,4 +1,5 @@
-def contentModificationTrimString(contentToTrim):
+
+def trimString(contentToTrim):
 
 	##
 
@@ -30,7 +31,21 @@ def contentModificationTrimString(contentToTrim):
 
 	return trimmedContent
 
-def contentModificationReverseString(contentToReverse):
+def stripString(someText):
+
+    print("--")
+    print()
+
+    print("someText before: ["+ someText +"]")
+
+    someText = someText.strip()
+
+    print()
+    print("someText  after: ["+ someText +"]")
+
+    return someText
+
+def reverseString(contentToReverse):
 
 	##
 
@@ -64,8 +79,3 @@ def contentModificationReverseString(contentToReverse):
 	print("exit :: contentModificationReverseString()")
 
 	return reversedContent
-
-def method22():
-    print("method2")
-    return 22
-

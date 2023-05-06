@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+
+  seo-content-fairy-api-flask:
+
+    build: .
+
+    image: seo-content-fairy/seo-content-fairy-api-flask
+

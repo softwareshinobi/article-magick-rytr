@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# reset
+reset
 
-# clear
+clear
 
 python3 text-rewrite-dashboard-api.py

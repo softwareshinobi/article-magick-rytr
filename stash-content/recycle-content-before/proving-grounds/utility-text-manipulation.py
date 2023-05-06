@@ -152,20 +152,6 @@ def save_rewritten_content_to_file(fname):
 
     f.close()
 
-def cleanString(someText):
-
-    print("--")
-    print()
-
-    print("someText before: ["+ someText +"]")
-
-    someText = someText.strip()
-
-    print()
-    print("someText  after: ["+ someText +"]")
-
-    return someText
-
 def doRewriteAndClean(someText):
 
     print("--")
