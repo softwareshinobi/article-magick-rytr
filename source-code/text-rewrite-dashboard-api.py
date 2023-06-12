@@ -34,6 +34,16 @@ def handleRootRequestGET():
 
 	return statusMessage
 
+@app.route('/health-check', methods=["GET"])
+@cross_origin()
+def handleHealthCheckGET():
+
+	statusMessage = "standard text API Is Up! [flask]"
+
+	print(statusMessage)
+
+	return statusMessage
+
 @app.route('/', methods=["POST"])
 @cross_origin()
 def handleRootRequestPOST():
@@ -57,7 +67,7 @@ def handlePOSTFormatText():
 
 	statusMessage = formatTextForRewrite(contentToFormat)
 
-	#print(statusMessage)
+	print(statusMessage)
 
 	return statusMessage
 
