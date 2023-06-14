@@ -94,9 +94,12 @@ def rewriteText(textToRewrite):
 
 	print(" -> :: rewriteText()")
 	print("    :: textToRewrite: ")
+
 	print(textToRewrite)
 
-	leftSideText = textToRewrite["originalContent"]
+	rewrittenString=""
+
+	leftSideText = textToRewrite
 
 	leftSideText = leftSideText.replace("\n", "")
 	
@@ -123,7 +126,7 @@ def rewriteText(textToRewrite):
 
 	for part in parts:
 
-
+		print ("Part: ",part)
 
 		part = part.strip()
 
@@ -133,40 +136,15 @@ def rewriteText(textToRewrite):
 
 		if not part.startswith("!!"):
 
-			thislist = thislist + (LEFTDELIM+part.strip()+RIGHTDELIM) + "\n\n"
+			rewrittenString = rewriteWithSpecialSauce(part)
 
 			continue
-
-		print()
-		print("part:")
-		print(part)
-		print()
-
-		pattern1 = r'//+'
-
-		sentences = re.split(pattern1, part)
-
-		print()
-		print("sentences:")
-		print(sentences)
-		print()
-
-		stringToRewrite = sentences[0].strip().replace("!!","")
-
-		print()
-		print("target sentence:")
-		print(stringToRewrite)
-		print()
-
-		rewrittenString = rewriteWithSpecialSauce(stringToRewrite)
-
-		thislist = thislist + (LEFTDELIM+stringToRewrite.strip()+MIDDLEDELIM+rewrittenString.strip()+RIGHTDELIM) + "\n\n"
-
+	
 	print()
 
 	print(" <- :: rewriteText()")
 
-	return thislist
+	return rewrittenString
 
 def the_secret_sauce(stringToRewrite):
 

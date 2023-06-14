@@ -44,16 +44,6 @@ def handleHealthCheckGET():
 
 	return statusMessage
 
-@app.route('/', methods=["POST"])
-@cross_origin()
-def handleRootRequestPOST():
-
-	statusMessage = "hello from / *POST*"
-
-	print(statusMessage)
-
-	return statusMessage
-
 ###
 
 @app.route('/text-operations/format-text', methods=["POST"])
@@ -73,20 +63,32 @@ def handlePOSTFormatText():
 
 ###
 
-@app.route('/text-operations/rewrite-text', methods=["POST"])
+@app.route('/rewrite-text-rytr', methods=["POST"])
 @cross_origin()
-def handlePOSTRewriteText():
+def handlePOSTRewriteTextWithRytr():
+
+	print("enter :: handlePOSTRewriteTextWithRytr()")
 
 	contentToRewrite = request.get_json()
 
-	#print("content to rewrite: ")
-	#print(contentToRewrite)
+	leftSideText = contentToRewrite["originalContent"]
 
-	statusMessage = rewriteText(contentToRewrite)
+	leftSideText = leftSideText.replace("\n", "")
 
-	#print(statusMessage)
+	print("param - content: ", leftSideText)
 
-	return statusMessage
+	print("sending text off to be rewritten")
+
+	rewrittenTextFromRytr = rewriteText(leftSideText)
+
+	##rewrittenTextFromRytr = "STUBBED CONTENT FROM RYTR"
+	
+	print("text rewrite completed")
+
+	print("returning: ", rewrittenTextFromRytr)
+	print("exit :: handlePOSTRewriteTextWithRytr()")
+
+	return rewrittenTextFromRytr
 
 ###
 
